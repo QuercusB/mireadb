@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925022705) do
+ActiveRecord::Schema.define(version: 20140930085858) do
 
   create_table "courses", force: true do |t|
     t.string   "code"
@@ -35,5 +35,20 @@ ActiveRecord::Schema.define(version: 20140925022705) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tasks", force: true do |t|
+    t.integer  "task_list_id"
+    t.integer  "task_variant_id"
+    t.integer  "index",           default: 0
+    t.string   "type"
+    t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "data"
+    t.boolean  "done",            default: false
+  end
+
+  add_index "tasks", ["task_list_id"], name: "index_tasks_on_task_list_id"
+  add_index "tasks", ["task_variant_id"], name: "index_tasks_on_task_variant_id"
 
 end
