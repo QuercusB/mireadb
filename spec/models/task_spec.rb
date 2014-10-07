@@ -6,6 +6,7 @@ RSpec.describe Task, :type => :model do
 	it { should validate_presence_of(:subject) }
 	it { should validate_presence_of(:type) }
 	it { should validate_presence_of(:index) }
+	it { should validate_presence_of(:title) }
 	
 	context 'by default' do
 		subject { Task.new }
@@ -31,14 +32,14 @@ RSpec.describe Task, :type => :model do
 	end
 	
 	it 'has type column which provides polymorphic tasks' do
-		task = DummyTask.new(subject: "Test", task_list: task_list, task_variant: task_variant)
+		task = DummyTask.new(title: 'Test', subject: "Test", task_list: task_list, task_variant: task_variant)
 		task.save!
 		reloadTask = Task.find(task.id)
 		expect(reloadTask.class).to eq(DummyTask)
 	end
 	
 	it 'subtypes can store their data in ''data'' column' do
-		task = DummyTask.new(subject: "Test", task_list: task_list, task_variant: task_variant)
+		task = DummyTask.new(title: 'Test', subject: "Test", task_list: task_list, task_variant: task_variant)
 		task.sql = "SELECT COUNT * FROM Task"
 		task.count = 4
 		task.save!
@@ -49,6 +50,6 @@ RSpec.describe Task, :type => :model do
 end
 
 class DummyTask < Task	
-	task_field :sql
-	task_field :count
+	data_field :sql
+	data_field :count
 end

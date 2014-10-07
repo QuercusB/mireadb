@@ -11,11 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930085858) do
+ActiveRecord::Schema.define(version: 20141007061403) do
 
   create_table "courses", force: true do |t|
     t.string   "code"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_assignments", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "task_variant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_assignments", ["student_id"], name: "index_student_assignments_on_student_id"
+  add_index "student_assignments", ["task_variant_id"], name: "index_student_assignments_on_task_variant_id"
+
+  create_table "student_task_attempts", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "task_id"
+    t.boolean  "done",          default: false
+    t.string   "error_message"
+    t.string   "type"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_task_attempts", ["student_id"], name: "index_student_task_attempts_on_student_id"
+  add_index "student_task_attempts", ["task_id"], name: "index_student_task_attempts_on_task_id"
+
+  create_table "students", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "login"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +66,8 @@ ActiveRecord::Schema.define(version: 20140930085858) do
     t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
+    t.text     "data"
   end
 
   create_table "tasks", force: true do |t|
@@ -41,11 +75,11 @@ ActiveRecord::Schema.define(version: 20140930085858) do
     t.integer  "task_variant_id"
     t.integer  "index",           default: 0
     t.string   "type"
-    t.string   "subject"
+    t.text     "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "data"
-    t.boolean  "done",            default: false
+    t.text     "data"
+    t.string   "title"
   end
 
   add_index "tasks", ["task_list_id"], name: "index_tasks_on_task_list_id"

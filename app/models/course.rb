@@ -4,4 +4,5 @@ class Course < ActiveRecord::Base
 	
 	has_many :task_lists
 	has_many :task_variants
+	has_many :students, through: :task_variants
 end
