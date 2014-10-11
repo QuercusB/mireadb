@@ -6,4 +6,11 @@ class StudentTaskAttempt < ActiveRecord::Base
 	
 	belongs_to :student
 	belongs_to :task
+
+	def self.make_attempt(student, task, args = {})
+		result = task.solve(args)
+		result.student = student
+		result.save!
+		result
+	end
 end

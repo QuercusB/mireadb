@@ -10,7 +10,7 @@ FactoryGirl.define do
 		task_variant
 	end
 
-	factory :mssql_task do
+	factory :mssql_task, class: MSSQLTask do
 		index 0
 		title 'Выбираем все сразу'
     	subject 'Напишите SQL-оператор, возвращающий все данные (все строки и столбцы) из таблицы <code>Contacts</code>'
