@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+function Application() {
+}
+
+function App() {
+	if (!window.app)
+		window.app = new Application();
+	return window.app;
+}

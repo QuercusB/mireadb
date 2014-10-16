@@ -103,7 +103,7 @@ describe MSSQLTask do
 			its(:result) { should == { 
 				columns: ["ID", "Last"], 
 				rows: [[1, "Борисов"], [2, "Плешанов"]],
-				extra_columns: ["Last"],
+				extra_columns: [1],
 				missing_columns: ["FirstName", "LastName"],
 				extra_rows: [1],
 				missing_rows: [[3, "???"]] } }

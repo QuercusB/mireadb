@@ -1,0 +1,220 @@
+@import 'style';
+
+body {
+	background-color: $back-color;	
+	font-family: $font-family;
+	font-size: $font-size;
+	color: $fore-color;
+	padding: 0;
+	margin: 0;
+}
+
+input {
+	font-family: $font-family;
+	font-size: $smaller-font-size;
+	padding: 0.1em 0.2em;
+}
+
+input[type=submit] {
+	font-family: $font-family;
+	font-size: $smaller-font-size;
+	min-width: 5em;
+	padding: 0;
+}
+
+a {
+	font-style: $link-font-style;
+	color: $link-color;
+	transition: color 0.1s;
+}
+
+a:hover {
+	color: $hover-link-color;
+}
+
+.title {
+	font-size: $big-font-size;
+	text-shadow: $shadow;
+
+	.actions {
+		margin-top: 0.16em;
+		float: right;
+	}
+}
+
+.actions {
+	overflow: auto;
+
+	a {
+		float: left;
+		display: block;
+		background-color: $button-back-color;
+		color: $button-fore-color;
+		font: $smaller-font-size $font-family;
+		text-decoration: none;
+		padding: 0em 0.5em;
+		margin-left: 0.5em;
+		border-top: $button-border-top;
+		border-left: $button-border-left;
+		border-right: $button-border-right;
+		border-bottom: $button-border-bottom;
+		border-radius: $button-border-radius;
+		transition: background-color 0.1s, color 0.1s;
+		text-shadow: $minor-shadow;
+	}
+
+	a:hover {
+		background-color: $button-hover-back-color;
+		color: $button-hover-fore-color;
+	}
+
+	a:active {
+		border-top: $button-pressed-border-top;
+		border-left: $button-pressed-border-left;
+		border-right: $button-pressed-border-right;
+		border-bottom: $button-pressed-border-bottom;
+	}
+
+	a.dangerous {
+		background-color: $dangerous-button-back-color;
+		color: $dangerous-button-fore-color;
+	}
+
+	a.dangerous:hover {
+		background-color: $dangerous-button-hover-back-color;
+		color: $dangerous-button-hover-fore-color;
+	}
+
+	.separator {
+		float: left;
+	}
+
+	.separator:after {
+		content: "|";
+		float: left;
+		margin-left: 0.3em;
+		margin-top: -0.3em;
+		text-shadow: $minor-shadow;
+	}
+}
+
+.message {
+	text-align: center;
+	font-style: italic;
+	font-family: $font-family;
+}
+
+.name-value-table {
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.name-value-row {
+	display: table-row;
+
+	.name { 
+		position: relative;
+		display: table-cell;
+		white-space: nowrap;
+		width: 1px;
+		border: 1px solid $back-color;
+		background-color: $attention-back-color;
+		color: $attention-fore-color;
+		text-shadow: $minor-shadow;
+		padding: 0.1em 0.5em;
+
+		.error-sign {
+			position: absolute;
+			right: 0.2em;
+			top: 0em;
+			bottom: 0em;
+			width: 24px;
+			background-repeat: no-repeat;
+			background-position: center center;
+			height: inherit;
+			background-color: $attention-back-color;
+		}
+	}
+
+	.value {
+		display: table-cell;
+		width: 100%;
+		border: 1px solid $attention-back-color;
+		font-family: $table-font-family;
+		font-size: $smaller-font-size;
+		padding: 0.1em 0.3em 0.1em 0.3em;
+
+		input {
+			border: 1px solid $input-back-color;
+			background-color: $input-back-color;
+			font-family: $table-font-family;
+			font-size: $smaller-font-size;
+			color: $input-fore-color;
+			width: 100%;
+			padding: 0em;
+			margin: 0em;
+			outline: none;
+		}
+
+		input.view {
+			border: 1px solid $back-color;
+			background-color: $back-color;
+			outline: none;
+			color: $fore-color;
+		}
+	}
+
+	.value.edit {
+		background-color: $input-back-color;
+		border-color: $attention-back-color;
+	}
+
+	.value.hidden-value {
+		font-style: italic;
+		opacity: 0.5;
+	}
+}
+
+
+.error-sign {
+	width: 16px;
+	height: 16px;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABxklEQVR4XqWTTWsTQRyHn81uY5taolRSQus224qHepG2QcVSddGbBCoqkksP0UKgGs0hVnKwQr6AJ19Ogke1oqg3C61IDy14EfXsxYPUNmlNTHc34+wcgrSQJviDH/xheB5m+DPa+7sGDaKjgse22LMOAIFGsKbprl8l2pldBTORoQSRIxNqblVg6sHOgmXfxjqdxZ8BsxVBpn/sJsFQl2wn/SevA2SbFYzt6Ypme0eSOMWPOOsL9A1foWN/LAOca0aQHrDzaOIPSw+nWHp8A1H7xcCZnDrbTZAKH4wnI4fHqa6+qhurP+fotoYJ941OAFONBOlB+w5u5RvCLVGP9xuv/IVDZ3PItT4C9J0CyPcMJUb2dh9ga/UduMU6L7xNeYuXhPaFiR69DHBvu6BXD4YKsfE0zto8uCWEbPzSBeIXE0qAV2ZLPiV2YhKjPZyfn22z/hVkzGPXaAt6OOuLEthQXX42x/Lz1woWtQruxicCehnz+FXFAPh/Qa6t58Po5BOqP+4j3E3QNMCvACGLhzSigECIDjPPytMUlbXv5w21tlO3JFOmPZqimYhakUE7x+cX02kDePD1zQxAktby1mc1IQT/k7+zxpXzUyGaJgAAAABJRU5ErkJggg==');
+}
+
+.alert {
+	margin: 1em 0em;
+	font: $alert-font-style $smaller-font-size $font-family;
+	color: $alert-color;
+}
+
+.notice {
+	margin: 1em 0em;
+	font: $notice-font-style $smaller-font-size $font-family;
+	color: $notice-color;
+}
+
+.icon-link {
+	display: block;
+	text-indent: -9999px;
+	width: 16px;
+	opacity: 0.6;
+	background-repeat: no-repeat;
+	background-position: center center;
+	transition: opacity 0.1s;
+}
+
+.icon-link:hover {
+	opacity: 0.9;
+}
+
+.delete-link {
+	@extend .icon-link;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACtklEQVR4Xn1TS0sbURQ+d2aSZhI3btwJhYgogahtIT4Sp3k0hlIDokVREVwZFHEhqCj+ARH6E4RSY1ZduSi0aMHqtj4SFR+YqBUfMfXRydg26em5lilDKB24nJzJ9333nPOdAUS8P28A6mYB4hQ9PDccI+Zx9A/Gp2MEoGeWMUWQpA/lwaCD4jvKG6HgIYyLMfbxYU2NQ7Ra5yn3cQBXfTYny+r+0BCeTU3hXiSCUZNJpfeK4eaGWUH4Fm9qwsOeHkw0N2NMljVeCVDZG2tdXXg+PY1Hvb14NjmJ+1zEbOYiXi4UlSR1p7UVvxBuz+HAVGcnLlVWIm+HEaBGsliWXIODNqvFAvlkEkylpaBmMrAyM6MxRHC1t8tWSYK79XUw2e2QSadhfXFRQ0SvXmI9byM1MoIXExN4Sjdcjo7i8cAAHvf3Y7qvD088Hjzt7sYdKp/61/RBGl3wk0j2mEQux8fxoqMDvw4PY4ZEzoNBTBP5oK0N50TxjrDNOq/QpnDMZsue0e1XY2OYaWnBS5cL06EQntAMYiYTJ3cZOUKBWwzyeQYcoKqQ394Gdn0NAuUi/1MQflEoMhIEg88hyWyONUQiFvHqCrT5eRDKygDo/NzdBUaCtYGALEnSK8K+NApwslcQxbdVHo+Fra2BSmSxogJuEeGWMWD0+0ciAeZcDh4piiwIwmviBDmXcQeotPdVbre1iMC5zU2Qq6vhBgA+LyzcMcI8CQQe2BDhO9koOZ1wk83C6vJyFhH9fJGSn8rL8YDs2SouxpTXi3FFQdq8LIk/pfM8Korals+HR34/7paU4CENd8lu54uUuJ88gbUNtxuTJLJaX6+TPQZ3Alxko7ERU+EwxilyDrf+r320rhpfT+pN5bv/jy9R4cIrTidyLOWhwkUKUzv7FGv/8znXUdlJii90zG+f6cW6bvDIXgAAAABJRU5ErkJggg==');
+}
+
+.restore-link {
+	@extend .icon-link;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuM4zml1AAAADcSURBVDhPpdExDgFREMZxRKEiEb2oVSoHcAxXEDpRUpGotGqVaCSuoBCFxhEkIg6gENZ/VuZl3gu7El/yS2Zm36yHTBRFfwkHJQywww2SJ65YogVvxzYNnJCWBQrwXlDGGRr59B4qyKOKNtaQG22Qg3vBEDZ96LNQHVt0pNfhETY12KWQ3KqLrA7usGnCLkyC3tHiAps9ipBnYxkQt2RpMUeYA2bvMo63qLSQv/CBpHiLyjYjJMWedWwjv+wK32LPOuEg6Rbh2ZhtpkiKPetokfb9Jd6i+jj8XZR5AZE4Xb7P3KCNAAAAAElFTkSuQmCC');
+}

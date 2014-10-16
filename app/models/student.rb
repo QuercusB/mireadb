@@ -7,4 +7,8 @@ class Student < ActiveRecord::Base
 	has_many :student_assignments
 	has_many :task_variants, through: :student_assignments
 	has_many :courses, through: :task_variants
+
+	def display_name
+		((self.last_name || "").strip + ' ' + (self.first_name || "").strip).strip
+	end
 end

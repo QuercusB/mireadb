@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  resources :courses, only: [:index, :show] do
+    resources :task_lists, only: [:index, :show] do
+      resources :tasks, only: [:index, :show] do
+        member do
+          post :attempt
+        end
+      end
+    end
+  end
+  root 'courses#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

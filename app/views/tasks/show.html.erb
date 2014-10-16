@@ -1,0 +1,10 @@
+<%= render 'task_list_panel', course: @course, task_list: @task_list, task: @task %>
+
+<div class="task-area">
+	<div class="title">
+		<%= @task.title %>
+	</div>
+	<div class="task-content">
+		<%= render "#{@task.type.downcase}_view", course: @course, task_list: @task_list, task: @task %>
+	</div>
+</div>

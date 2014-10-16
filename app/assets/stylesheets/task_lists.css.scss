@@ -1,0 +1,46 @@
+@import 'style';
+
+.task-lists {
+	position: absolute;
+	top: 2em;
+	bottom: 0.5em;
+	left: 0.5em;
+	width: 16em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.task-list {
+	margin: 0.25em 0em;
+
+	a {
+		border: 1px solid $fore-color;
+		display: block;
+		padding: 0.1em 0.5em;
+		font-style: normal;
+		text-decoration: none;
+	}
+
+	a:hover {
+		background-color: $attention-back-color;
+		color: $attention-fore-color;
+	}
+}
+
+.task-list.selected {
+	div {
+		border: 1px solid $fore-color;
+		padding: 0.1em 0.5em;
+		font-style: normal;
+		text-decoration: none;
+		background-color: $attention-back-color;
+		color: $fore-color;
+	}	
+}
+
+.tasks { 
+	margin: 0.5em 0 0.5em 1em;
+	padding: 0;
+	list-style: none;
+}

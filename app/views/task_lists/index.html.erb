@@ -1,0 +1,9 @@
+<ul class="task-lists">
+	<% @course.task_lists.sort_by { |x| x.name }.each do |task_list| %>
+		<li class="task-list">
+			<a href="<%= course_task_list_path(@course, task_list) %>">
+				<%= task_list.name %>
+			</a>
+		</li>
+	<% end %>
+</ul>

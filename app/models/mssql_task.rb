@@ -2,7 +2,7 @@ class MSSQLTask < Task
 	data_field :answer
 
 	def solve(options = {})
-		query = options[:query]
+		query = options[:query] || options["query"]
 		raise ArgumentError.new('Query not specified') if query.blank?
 
 		result = MSSQLStudentTaskAttempt.new(task: self, query: query)
@@ -39,7 +39,7 @@ class MSSQLTask < Task
 			if answer_result.columns.any? { |x| x.casecmp(column) == 0 }
 				query_common_columns_indexes[column.downcase] = column_index
 			else
-				query_result[:extra_columns] << column
+				query_result[:extra_columns] << column_index
 			end
 		end
 		answer_common_columns_indexes = {}

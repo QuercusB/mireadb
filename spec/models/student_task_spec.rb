@@ -1,0 +1,2 @@
+describe StudentTask do
+end

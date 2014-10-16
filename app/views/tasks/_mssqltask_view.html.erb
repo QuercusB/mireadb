@@ -1,0 +1,82 @@
+<div class="mssql-task">
+	<div class="mssql-task-subject">
+		<div class="text">
+			<%= raw(task.subject) %>
+		</div>
+	</div>
+	<div class="mssql-task-solution">
+		<div class="title">Ваше решение</div>
+		<form class="solution-form" action="<%= attempt_course_task_list_task_path(course, task_list, task) %>">
+			<div class="solution-text">
+				<textarea name="query"><%= @attempt.nil? ? '' : @attempt.query %></textarea>
+			</div>
+			<div class="submit-area">
+				<input type="submit" value="Выполнить"></input>
+				<div class="response">
+					<div class="alert">Сообщение об ошибке здесь</div>
+					<div class="notice">Все правильно!</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="mssql-task-result">
+		<div class="title">Результат запроса</div>
+		<div class="result-table">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th class="extra">Last</th>
+						<th class="missing">FirstName</th>
+						<th class="missing">LastName</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Борисов</td>
+					<tr>
+					<tr class="extra">
+						<td>3</td>
+						<td>Плешанов</td>
+					</tr>
+					<tr class="missing">
+						<td>2</td>
+						<td>???</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="result-legend">
+			<table>
+				<thead>
+					<tr>
+						<th class="header">Ошибки</th>
+					</tr>
+					<tr>
+						<th class="extra">Лишняя колонка</th>
+					</tr>
+					<tr>
+						<th class="missing">Пропущенная колонка</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="extra">
+						<td>Лишняя строка</td>
+					</tr>
+					<tr class="missing">
+						<td>Пропущенная строка</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<% unless @attempt.nil? %>
+	<script>
+		$(function () {
+			MSSQLTask().loadResultData(<%= raw(@attempt.result.to_json) %>);
+		})
+	</script>
+<% end %>

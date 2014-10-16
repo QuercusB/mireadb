@@ -1,0 +1,10 @@
+<ul class="courses-list">
+	<% @courses.each do |course| %>
+		<li class="course" data-id="<%= course.id %>">
+			<a href="<%= course_path(course) %>">
+				<div class="code"><%= course.code %></div>
+				<div class="name"><%= course.name %></div>
+			</a>
+		</li>
+	<% end %>
+</ul>

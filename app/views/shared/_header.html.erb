@@ -1,0 +1,14 @@
+<div class="header">
+	<% unless @course.nil? %>
+		<div class="nav">
+			<div class="nav-item"><%= @course.name %></div>
+		</div>
+	<% end %>
+	<div class="auth">
+		<div class="user-name">
+			<%= current_student.display_name %>
+		</div>
+		<a href="#" class="student-info">Управление</a>
+		<a href="#" class="student-logout">Выйти</a>
+	</div>
+</div>

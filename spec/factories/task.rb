@@ -1,11 +1,10 @@
 #encoding: UTF-8
 
 FactoryGirl.define do
-	factory :task do
+	factory :task, class: MSSQLTask do
 		sequence(:index)
 		sequence(:subject) { |n| "Task subject #{n}" }
 		sequence(:title) { |n| "Task #{n}" }
-		type "DummyTask"
 		task_list
 		task_variant
 	end

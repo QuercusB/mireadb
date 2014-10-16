@@ -1,0 +1,211 @@
+@import 'style';
+
+.mssql-task-subject {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 15%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-family: Calibri, Segoe UI, sans-serif;
+
+	.text {
+		padding: 0.5em;
+	}
+
+	code {
+		font-family: Consolas, Courier New, monospace;
+		text-shadow: $minor-shadow;
+		color: #EEE;
+	}
+}
+
+.task-area {
+	.mssql-task-solution .title, .mssql-task-result .title {
+		font-size: 1em;
+		height: 1.1em;
+		margin: 0.5em;
+		background-color: #555;
+		color: #EEE;
+		text-shadow: none;
+		font-weight: normal;	
+	}
+
+	.mssql-task-solution {
+		position: absolute;
+		top: 15%;
+		left: 0;
+		right: 0;
+		height: 25%;
+
+		.solution-form {
+			position: absolute;
+			left: 0.5em;
+			right: 0.5em;
+			bottom: 0.5em;
+			top: 2.4em;	
+			overflow: hidden;
+
+			.solution-text {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 2em;
+			}
+
+			textarea {
+				font-size: 1em;
+				padding: 0.2em;
+				position: relative;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				resize: none;		
+				font-family: Consolas, Courier New, monospace;
+				overflow-y: scroll;
+			}
+
+			.submit-area {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0em;
+				height: 1.6em;
+				display: table;
+
+				input[type=submit] {
+					display: table-cell;
+					width: 120px;
+					padding: 0.1em 0.75em;			
+					transition: 0.2s padding;
+				}
+
+				input[type=submit].progress {
+					background-image: image_url('ajax-loader.gif');
+					background-repeat: no-repeat;
+					background-position: center left;
+					padding: 0.1em 0.5em 0.1em 1em;			
+				}
+
+				.response {
+					display: table-cell;
+					width: 100%;
+					text-align: left;
+					vertical-align: middle;
+					white-space: nowrap;	
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.alert {
+					padding: 0em 0.3em;
+					margin: 0;
+					font-size: 0.9em;	
+					color: #F27F7F;
+					display: none;
+				}
+
+				.notice {
+					padding: 0em 0.3em;
+					margin: 0;
+					font-size: 0.9em;	
+					color: #83ae83;
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.mssql-task-result {
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: 0;
+	height: 60%;
+
+	.result-table {
+		margin: 0.5em;
+		overflow: auto;
+		position: absolute;
+		left: 0;
+		right: 8em;
+		top: 2em;
+		bottom: 0;
+	}
+
+	.result-legend {
+		margin: 0.5em;
+		overflow: auto;
+		position: absolute;
+		width: 8em;
+		right: 0;
+		top: 2em;
+		background-color: #CCC;
+		padding: 5px;
+
+		table {
+			font-size:0.8em;
+			white-space: nowrap;
+			width: 100%;
+
+			th.header {
+				border: none;
+			}
+
+			th {
+				font-size:0.7em;
+				width: 100%;
+			}
+
+			td {
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+
+	table {
+		font-family: Consolas, Courier New, monospace;
+		border-collapse: collapse;
+
+		thead tr {
+			background-color: #CCC;
+			color: #333;
+		}
+
+		tr.extra {
+			background-color: #B01414;
+			color: #e3e3e3;
+		}
+
+		tr.missing {
+			background-color: rgb(7, 113, 46);
+			color: #e3e3e3;
+		}
+
+		th.extra {
+			background-color: #FF7474;
+		}
+
+		th.missing {
+			background-color: #65C679;
+		}
+
+		th {
+			text-align: center;
+			border: 1px solid #999;
+			font-size: 0.8em;
+			padding: 0.2em 0.5em;
+		}
+
+		td { 
+			border: 1px solid #999;
+			text-align: right;
+			font-size: 0.7em;
+			padding: 0.2em 0.5em;
+		}
+	}
+}

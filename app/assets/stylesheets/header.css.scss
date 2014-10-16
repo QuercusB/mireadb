@@ -1,0 +1,45 @@
+@import 'style';
+
+.header {
+	background-color: $attention-back-color;
+	color: $attention-fore-color;	
+	font-size: $smaller-font-size;
+	margin: 0;
+	padding: 0.2em 0.5em;
+	overflow: hidden;
+	height: 1.5em;
+
+	.nav { 
+		float: left;
+
+		.nav-item,.nav-current,.nav-separator {
+			float: left;
+			text-shadow: $minor-shadow;
+			font-size: 18pt;
+		}
+
+		.nav-separator:after {
+			content: ">";
+			font-style: italic;
+			padding: 0px 6px;
+		}
+	}
+
+	.auth {
+		float: right;
+		overflow: none;
+		white-space: nowrap;
+		margin-top: 0.2em;
+	
+		a, span {
+			float: left;
+			margin-left: 10px;
+		}
+
+		.user-name {
+			float: left;
+			font: $attention-font-style $smaller-font-size $font-family;
+			text-shadow: $minor-shadow;
+		}
+	}
+}

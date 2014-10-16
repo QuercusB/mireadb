@@ -1,0 +1,51 @@
+@import 'mixins';
+
+$back-color: #333;
+$fore-color: #CCC;
+$font-family: Segoe UI;
+$smaller-font-size: 14pt;
+$font-size: 16pt;
+$big-font-size: 20pt;
+$large-font-size: 24pt;
+$table-font-family: Consolas, Courier, monospace;
+
+$alert-font-style: bold;
+$alert-color: #CE4848;
+$notice-font-style: italic;
+$notice-color: #83AE83;
+
+$attention-back-color: #555;
+$attention-fore-color: #E0E0E0;
+$attention-font-style: italic;
+
+$button-back-color: #5A5990;
+$button-fore-color: #D5D4F4;
+$button-border-top: 1px solid #BEBEF3;
+$button-border-left: 1px solid #BEBEF3;
+$button-border-right: 2px solid #79799A;
+$button-border-bottom: 2px solid #79799A;
+$button-border-radius: 2px;
+
+$button-hover-back-color: #7371B4;
+$button-hover-fore-color: #EBEBFF;
+
+$button-pressed-border-top: 2px solid #8B8BC1;
+$button-pressed-border-left: 2px solid #8B8BC1;
+$button-pressed-border-right: 1px solid #79799A;
+$button-pressed-border-bottom: 1px solid #79799A;
+
+$dangerous-button-back-color: #813434;
+$dangerous-button-fore-color: #E7C7C7;
+$dangerous-button-hover-back-color: #9C4444;
+$dangerous-button-hover-fore-color: #F6E5E5;
+
+$shadow: 3px 3px 3px black;
+$minor-shadow: 1px 1px 3px black;
+
+$link-font-style: italic;
+$link-color: #D1C9DA;
+$hover-link-color: #9C95EE;
+
+$input-back-color: #EEE;
+$input-fore-color: #222;
+
