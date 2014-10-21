@@ -9,6 +9,9 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	background-color: #EEE;
+	padding: 0em 0.2em;
+	margin: 0.25em 0em 0em 0em;
 }
 
 .task-list {
@@ -20,6 +23,7 @@
 		padding: 0.1em 0.5em;
 		font-style: normal;
 		text-decoration: none;
+		color: #333;
 	}
 
 	a:hover {
@@ -29,7 +33,7 @@
 }
 
 .task-list.selected {
-	div {
+	.task-list-name {
 		border: 1px solid $fore-color;
 		padding: 0.1em 0.5em;
 		font-style: normal;
@@ -40,7 +44,74 @@
 }
 
 .tasks { 
-	margin: 0.5em 0 0.5em 1em;
+	margin: 0.5em 0;
 	padding: 0;
 	list-style: none;
+
+	.task {
+		display: table;
+		width: 100%;
+		border: none;
+
+		.selector, .done { 
+			border: none;
+			display: table-cell;
+			background-color: transparent;
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: initial;
+		}
+
+		.selector {
+			width: 24px;
+		}
+
+		.done {
+			width: 16px;
+		}
+
+		.done.visible {
+			background-image: image_url('ok.png');
+		}
+
+		a {
+			background-color: transparent;
+			display: table;
+			padding: 0.2em 0em;
+			width: 100%;
+			border: none;
+			border-top: 1px solid #999;
+			color: #666;
+		}
+		a:hover { 
+			background-color: #333;
+			color: #EEE;
+		}
+		.task-name {
+			width: 100%;
+		}
+	}
+
+	.task.selected {
+		.selector {
+			background-image: image_url('arrow_right.png');
+		}
+
+		a {
+			color: black;
+		}
+		a:hover {
+			color: #EEE;
+		}
+	}
+	
+	.task:first-child {
+		a {
+			border-top: none;
+		}
+
+		.done {
+			border-top: none;
+		}
+	}
 }

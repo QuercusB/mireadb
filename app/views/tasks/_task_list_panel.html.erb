@@ -2,24 +2,19 @@
 	<% course.task_lists.sort_by { |x| x.name }.each do |list| %>
 		<% if !task_list.nil? && list.id == task_list.id %>
 			<li class="task-list selected">
-				<div>
+				<div class="task-list-name">
 					<%= list.name %>
 				</div>
 				<ul class="tasks">
 					<% list.student_tasks(current_student).each do |t| %>
-						<% if !task.nil? && t.task.id == task.id %>
-							<li class="task selected">
-								<div>
-									<%= t.task.title %>
-								</div>
-							</li>
-						<% else %>
-							<li class="task">
-								<a href="<%= course_task_list_task_path(course, list, t.task) %>">
-									<%= t.task.title %>
-								</a>
-							</li>
-						<% end %>
+						<li class="task <%= (!task.nil? && t.task.id == task.id) ? 'selected' : '' %>"
+							data-done="<%= t.done? ? 1 : 0 %>">
+							<div class="selector"></div>
+							<a href="<%= course_task_list_task_path(course, list, t.task) %>">
+								<div class="task-name"><%= t.task.title %></div>
+								<div class="done <%= t.done? ? 'visible' : '' %>"></div>
+							</a>
+						</li>
 					<% end %>
 				</ul>
 			</li>

@@ -13,7 +13,7 @@
 		font-size: 1.2em;
 		height: 2em/1.2 - 0.4em;
 		padding: 0.2em 0.5em;
-		background: #CCC;
+		background: #EEE;
 		color: #555;
 		text-shadow: 1px 1px 1px white;
 		font-weight: bold;
@@ -29,6 +29,85 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+
+	.task-popups {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.4);
+	}
+
+	.popup-border {
+		width: 260px;
+		height: 6em;
+		background: #EEE;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		margin-left: -130px;
+		margin-top: -3em;
+		border: 1px solid #999;
+		outline: 2px solid white;
+		color: #333;	
+
+		.text {
+			font-size: 1.2em;
+			text-align:center;
+			margin: 0.2em 0.5em 0.5em 0.5em;
+			text-shadow: 1px 1px 1px #999;
+		}
+
+		.close-btn {
+			position: absolute;
+			cursor: pointer;
+			top: 0px;
+			right: 0px;
+			width: 18px;
+			height: 18px;
+			background-image: image_url('close.png');
+			background-size: contain;
+			opacity: 0.6;
+			transition: 0.2s opacity;
+		}
+		.close-btn:hover {
+			opacity: 1;
+		}
+
+		.tick {
+			margin: auto;
+			width: 24px;
+			height: 24px;
+			background-image: image_url('ok.png');
+			background-size: contain;
+		}
+
+		.next-link-area {
+			position: absolute;
+			bottom:0;
+
+			.next-link {
+				margin: 0.3em auto;
+				text-decoration: underline;
+				cursor: pointer;
+				color: #333;
+				font-style: italic;
+				display: block;
+				white-space: nowrap;
+				padding: 0.1em 0.5em;
+				border: 1px dotted black;
+				border-radius: 5px;
+				transition: 0.2s background-color;
+			}
+
+			.next-link:hover { 
+				background-color: #CCC;
+				color: #333;
+			}
+		}
+	}
 }
 
 

@@ -5,6 +5,32 @@
 		<%= @task.title %>
 	</div>
 	<div class="task-content">
-		<%= render "#{@task.type.downcase}_view", course: @course, task_list: @task_list, task: @task %>
+		<%= render "#{@task.type.downcase}_view", course: @course, task_list: @task_list, task: @task, attempt: @attempt, prev_task_attempt: @prev_task_attempt, next_task: @next_task %>
+		<div class="task-popups">
+			<div class="task-solved-popup popup-border">
+				<div class="text">Задание решено</div>
+				<div class="close-btn"></div>
+				<div class="tick"></div>
+				<div class="next-link-area">
+					<table>
+						<td width="50%">&nbsp;</td>
+						<td width="1px"><a class="next-link">Следующее задание</a></td>
+						<td width="50%">&nbsp;</td>
+					</table>
+				</div>
+			</div>
+			<div class="task-list-solved-popup popup-border">
+				<div class="text">Тест выполнен</div>
+				<div class="close-btn"></div>
+				<div class="tick"></div>
+				<div class="next-link-area">
+					<table>
+						<td width="50%">&nbsp;</td>
+						<td width="1px"><a class="next-link">Ok</a></td>
+						<td width="50%">&nbsp;</td>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

@@ -18,11 +18,18 @@ function MSSQLTask(task) {
 		resultLegendExtraColumn = resultLegend.find('th.extra'),
 		resultLegendMissingRow = resultLegend.find('tr.missing'),
 		resultLegendExtraRow = resultLegend.find('tr.extra'),
-		$this = this;
+		$this = this,
+		orderKey = task.data('order-key'),
+		ordered = task.data('ordered'),
+		ldistinct = task.data('distinct');
 
 	submit.click(sendSolution);
 	solution.keydown(solutionKeyDown);
 	$(window).resize(updateResultTableSize);
+
+	this.focusSolution = function() {
+		solution.focus();
+	}
 
 	function updateResultTableSize() {
 		var resultArea = $('.mssql-task-result'),
@@ -81,8 +88,7 @@ function MSSQLTask(task) {
 		console.log(submitAction);
 		$.post(submitAction, { query: solution.val(), format: 'json' })
 			.done(parseResponse)
-			.fail(sendFailed)
-			.always(afterSend);
+			.fail(sendFailed);
 	}
 
 	function parseResponse(result) {
@@ -94,8 +100,17 @@ function MSSQLTask(task) {
 		else {
 			fadeIn(notice);
 		}
-		if (result.data.result) {
+		if (result.data && result.data.result) {
 			$this.loadResultData(result.data.result);
+		}
+		submit.removeAttr('disabled').removeClass('progress');
+		solution.removeAttr('disabled');
+		if (result.done) {
+			App().task_list.markSelectedDone();
+			App().task_list.moveForward();
+		}
+		else {
+			solution.focus();
 		}
 	}
 
@@ -103,17 +118,30 @@ function MSSQLTask(task) {
 		console.log(result);
 		alert.text('Операция не реализована')
 		fadeIn(alert);
-	}
-
-	function afterSend() {
 		submit.removeAttr('disabled').removeClass('progress');
 		solution.removeAttr('disabled');
 	}
 
 	function solutionKeyDown(e) {
-		if (e.ctrlKey && e.keyCode == 13)
+	    var keyCode = e.keyCode || e.which;
+		if (e.ctrlKey && keyCode == 13)
 			sendSolution();
+		if (keyCode == 9) {
+			e.preventDefault();
+			var start = $(this).get(0).selectionStart;
+			var end = $(this).get(0).selectionEnd;
+
+			// set textarea value to: text before caret + tab + text after caret
+			$(this).val($(this).val().substring(0, start)
+			            + "\t"
+			            + $(this).val().substring(end));
+
+			// put caret at right position again
+			$(this).get(0).selectionStart =
+			$(this).get(0).selectionEnd = start + 1;
+		}
 	}
+
 
 	function fadeOut(div, afterFadeOut) {
 		div.animate({opacity: 0}, 200, function() { div.css('display', 'none'); if (afterFadeOut) afterFadeOut(); });
@@ -131,9 +159,13 @@ function MSSQLTask(task) {
 		var theadRow = $("<tr></tr>").appendTo(thead);
 		var count = resultData.columns.length;
 		var columnCount = count;
+		var orderColumn = -1;
 		var i;
-		for (i = 0; i < count; i++)
+		for (i = 0; i < count; i++) {
+			if (resultData.columns[i] == orderKey && !ordered)
+				orderColumn = i;
 			$("<th></th>").text(resultData.columns[i]).appendTo(theadRow);
+		}
 		count = resultData.extra_columns.length;
 		for (i = 0; i < count; i++)
 			$(theadRow.find("th")[resultData.extra_columns[i]]).addClass('extra');
@@ -142,20 +174,52 @@ function MSSQLTask(task) {
 			$("<th></th>").text(resultData.missing_columns[i]).addClass('missing').appendTo(theadRow);
 		count = resultData.rows.length;
 		var tbody = $("<tbody></tbody>").appendTo(table);
+		var unorderedRows = new Array();
 		for (i = 0; i < count; i++) {
-			var row = $("<tr></tr>").appendTo(tbody);
+			var row = $("<tr></tr>");
+			var orderValue = -1;
 			for (var k = 0; k < columnCount; k++)
-				$("<td></td>").text(resultData.rows[i][k]).appendTo(row);
+			{
+				var value = resultData.rows[i][k];
+				if (k == orderColumn)
+					orderValue = value;
+				if (value === null)
+					$("<td></td>").text('NULL').addClass('null-value').appendTo(row);
+				else
+					$("<td></td>").text(value).appendTo(row);
+			}
+			unorderedRows.push({row: row, order: orderValue});
 		}
 		count = resultData.extra_rows.length;
 		for (i = 0; i < count; i++)
-			$(tbody.find("tr")[resultData.extra_rows[i]]).addClass('extra');
+			unorderedRows[resultData.extra_rows[i]].row.addClass('extra');
 		count = resultData.missing_rows.length;
 		for (i = 0; i < count; i++) {
-			var row = $("<tr></tr>").addClass('missing').appendTo(tbody);
-			for (var k = 0; k < columnCount; k++)
-				$("<td></td>").text(resultData.missing_rows[i][k]).appendTo(row);
+			var row = $("<tr></tr>").addClass('missing');
+			var orderValue = -1;
+			for (var k = 0; k < columnCount; k++) {
+				var value = resultData.missing_rows[i][k]
+				if (k == orderColumn)
+					orderValue = value;
+				if (value === null)
+					$("<td></td>").text('NULL').addClass('null-value').appendTo(row);
+				else
+					$("<td></td>").text(value).appendTo(row);
+			}
+			unorderedRows.push({row: row, order: orderValue});
 		}
+		if (orderColumn != -1)
+			unorderedRows.sort(function (a, b) 
+				{
+					if (a.order < b.order)
+						return -1;
+					if (a.order > b.order)
+						return 1;
+					return 0;
+				});
+		count = unorderedRows.length;
+		for (var i = 0; i < count; i++)
+			unorderedRows[i].row.appendTo(tbody);
 		table.appendTo(resultTable);
 		resultTable.css('overflow', 'hidden');
 		fadeIn(resultTable, function() {

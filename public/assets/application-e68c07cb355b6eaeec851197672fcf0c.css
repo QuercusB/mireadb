@@ -1,0 +1,764 @@
+/* line 3, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+body {
+  background-color: #333333;
+  font-family: Segoe UI;
+  font-size: 16pt;
+  color: #cccccc;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 12, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+input {
+  font-family: Segoe UI;
+  font-size: 14pt;
+  padding: 0.1em 0.2em;
+}
+
+/* line 18, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+input[type=submit] {
+  font-family: Segoe UI;
+  font-size: 14pt;
+  min-width: 5em;
+  padding: 0;
+}
+
+/* line 25, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+a {
+  font-style: italic;
+  color: #d1c9da;
+  transition: color 0.1s;
+}
+
+/* line 31, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+a:hover {
+  color: #9c95ee;
+}
+
+/* line 35, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.title {
+  font-size: 20pt;
+  text-shadow: 3px 3px 3px black;
+}
+/* line 39, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.title .actions {
+  margin-top: 0.16em;
+  float: right;
+}
+
+/* line 45, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions {
+  overflow: auto;
+}
+/* line 48, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions a {
+  float: left;
+  display: block;
+  background-color: #5a5990;
+  color: #d5d4f4;
+  font: 14pt Segoe UI;
+  text-decoration: none;
+  padding: 0em 0.5em;
+  margin-left: 0.5em;
+  border-top: 1px solid #bebef3;
+  border-left: 1px solid #bebef3;
+  border-right: 2px solid #79799a;
+  border-bottom: 2px solid #79799a;
+  border-radius: 2px;
+  transition: background-color 0.1s, color 0.1s;
+  text-shadow: 1px 1px 3px black;
+}
+/* line 66, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions a:hover {
+  background-color: #7371b4;
+  color: #ebebff;
+}
+/* line 71, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions a:active {
+  border-top: 2px solid #8b8bc1;
+  border-left: 2px solid #8b8bc1;
+  border-right: 1px solid #79799a;
+  border-bottom: 1px solid #79799a;
+}
+/* line 78, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions a.dangerous {
+  background-color: #813434;
+  color: #e7c7c7;
+}
+/* line 83, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions a.dangerous:hover {
+  background-color: #9c4444;
+  color: #f6e5e5;
+}
+/* line 88, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions .separator {
+  float: left;
+}
+/* line 92, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.actions .separator:after {
+  content: "|";
+  float: left;
+  margin-left: 0.3em;
+  margin-top: -0.3em;
+  text-shadow: 1px 1px 3px black;
+}
+
+/* line 101, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.message {
+  text-align: center;
+  font-style: italic;
+  font-family: Segoe UI;
+}
+
+/* line 107, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* line 113, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row {
+  display: table-row;
+}
+/* line 116, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .name {
+  position: relative;
+  display: table-cell;
+  white-space: nowrap;
+  width: 1px;
+  border: 1px solid #333333;
+  background-color: #555555;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 3px black;
+  padding: 0.1em 0.5em;
+}
+/* line 127, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .name .error-sign {
+  position: absolute;
+  right: 0.2em;
+  top: 0em;
+  bottom: 0em;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: inherit;
+  background-color: #555555;
+}
+/* line 140, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .value {
+  display: table-cell;
+  width: 100%;
+  border: 1px solid #555555;
+  font-family: Consolas, Courier, monospace;
+  font-size: 14pt;
+  padding: 0.1em 0.3em 0.1em 0.3em;
+}
+/* line 148, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .value input {
+  border: 1px solid #eeeeee;
+  background-color: #eeeeee;
+  font-family: Consolas, Courier, monospace;
+  font-size: 14pt;
+  color: #222222;
+  width: 100%;
+  padding: 0em;
+  margin: 0em;
+  outline: none;
+}
+/* line 160, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .value input.view {
+  border: 1px solid #333333;
+  background-color: #333333;
+  outline: none;
+  color: #cccccc;
+}
+/* line 168, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .value.edit {
+  background-color: #eeeeee;
+  border-color: #555555;
+}
+/* line 173, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.name-value-row .value.hidden-value {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+/* line 180, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.error-sign {
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABxklEQVR4XqWTTWsTQRyHn81uY5taolRSQus224qHepG2QcVSddGbBCoqkksP0UKgGs0hVnKwQr6AJ19Ogke1oqg3C61IDy14EfXsxYPUNmlNTHc34+wcgrSQJviDH/xheB5m+DPa+7sGDaKjgse22LMOAIFGsKbprl8l2pldBTORoQSRIxNqblVg6sHOgmXfxjqdxZ8BsxVBpn/sJsFQl2wn/SevA2SbFYzt6Ypme0eSOMWPOOsL9A1foWN/LAOca0aQHrDzaOIPSw+nWHp8A1H7xcCZnDrbTZAKH4wnI4fHqa6+qhurP+fotoYJ941OAFONBOlB+w5u5RvCLVGP9xuv/IVDZ3PItT4C9J0CyPcMJUb2dh9ga/UduMU6L7xNeYuXhPaFiR69DHBvu6BXD4YKsfE0zto8uCWEbPzSBeIXE0qAV2ZLPiV2YhKjPZyfn22z/hVkzGPXaAt6OOuLEthQXX42x/Lz1woWtQruxicCehnz+FXFAPh/Qa6t58Po5BOqP+4j3E3QNMCvACGLhzSigECIDjPPytMUlbXv5w21tlO3JFOmPZqimYhakUE7x+cX02kDePD1zQxAktby1mc1IQT/k7+zxpXzUyGaJgAAAABJRU5ErkJggg==");
+}
+
+/* line 186, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.alert {
+  margin: 1em 0em;
+  font: bold 14pt Segoe UI;
+  color: #ce4848;
+}
+
+/* line 192, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.notice {
+  margin: 1em 0em;
+  font: italic 14pt Segoe UI;
+  color: #83ae83;
+}
+
+/* line 198, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.icon-link, .delete-link, .restore-link {
+  display: block;
+  text-indent: -9999px;
+  width: 16px;
+  opacity: 0.6;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: opacity 0.1s;
+}
+
+/* line 208, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.icon-link:hover, .delete-link:hover, .restore-link:hover {
+  opacity: 0.9;
+}
+
+/* line 212, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.delete-link {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACtklEQVR4Xn1TS0sbURQ+d2aSZhI3btwJhYgogahtIT4Sp3k0hlIDokVREVwZFHEhqCj+ARH6E4RSY1ZduSi0aMHqtj4SFR+YqBUfMfXRydg26em5lilDKB24nJzJ9333nPOdAUS8P28A6mYB4hQ9PDccI+Zx9A/Gp2MEoGeWMUWQpA/lwaCD4jvKG6HgIYyLMfbxYU2NQ7Ra5yn3cQBXfTYny+r+0BCeTU3hXiSCUZNJpfeK4eaGWUH4Fm9qwsOeHkw0N2NMljVeCVDZG2tdXXg+PY1Hvb14NjmJ+1zEbOYiXi4UlSR1p7UVvxBuz+HAVGcnLlVWIm+HEaBGsliWXIODNqvFAvlkEkylpaBmMrAyM6MxRHC1t8tWSYK79XUw2e2QSadhfXFRQ0SvXmI9byM1MoIXExN4Sjdcjo7i8cAAHvf3Y7qvD088Hjzt7sYdKp/61/RBGl3wk0j2mEQux8fxoqMDvw4PY4ZEzoNBTBP5oK0N50TxjrDNOq/QpnDMZsue0e1XY2OYaWnBS5cL06EQntAMYiYTJ3cZOUKBWwzyeQYcoKqQ394Gdn0NAuUi/1MQflEoMhIEg88hyWyONUQiFvHqCrT5eRDKygDo/NzdBUaCtYGALEnSK8K+NApwslcQxbdVHo+Fra2BSmSxogJuEeGWMWD0+0ciAeZcDh4piiwIwmviBDmXcQeotPdVbre1iMC5zU2Qq6vhBgA+LyzcMcI8CQQe2BDhO9koOZ1wk83C6vJyFhH9fJGSn8rL8YDs2SouxpTXi3FFQdq8LIk/pfM8Korals+HR34/7paU4CENd8lu54uUuJ88gbUNtxuTJLJaX6+TPQZ3Alxko7ERU+EwxilyDrf+r320rhpfT+pN5bv/jy9R4cIrTidyLOWhwkUKUzv7FGv/8znXUdlJii90zG+f6cW6bvDIXgAAAABJRU5ErkJggg==");
+}
+
+/* line 217, /home/pavel/projects/mireadb/app/assets/stylesheets/default.css.scss */
+.restore-link {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuM4zml1AAAADcSURBVDhPpdExDgFREMZxRKEiEb2oVSoHcAxXEDpRUpGotGqVaCSuoBCFxhEkIg6gENZ/VuZl3gu7El/yS2Zm36yHTBRFfwkHJQywww2SJ65YogVvxzYNnJCWBQrwXlDGGRr59B4qyKOKNtaQG22Qg3vBEDZ96LNQHVt0pNfhETY12KWQ3KqLrA7usGnCLkyC3tHiAps9ipBnYxkQt2RpMUeYA2bvMo63qLSQv/CBpHiLyjYjJMWedWwjv+wK32LPOuEg6Rbh2ZhtpkiKPetokfb9Jd6i+jj8XZR5AZE4Xb7P3KCNAAAAAElFTkSuQmCC");
+}
+/* line 3, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header {
+  background-color: #555555;
+  color: #e0e0e0;
+  font-size: 14pt;
+  margin: 0;
+  padding: 0.2em 0.5em;
+  overflow: hidden;
+  height: 1.5em;
+}
+/* line 12, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header .nav {
+  float: left;
+}
+/* line 15, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header .nav .nav-item, .header .nav .nav-current, .header .nav .nav-separator {
+  float: left;
+  text-shadow: 1px 1px 3px black;
+  font-size: 18pt;
+}
+/* line 21, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header .nav .nav-separator:after {
+  content: ">";
+  font-style: italic;
+  padding: 0px 6px;
+}
+/* line 28, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header .auth {
+  float: right;
+  overflow: none;
+  white-space: nowrap;
+  margin-top: 0.2em;
+}
+/* line 34, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header .auth a, .header .auth span {
+  float: left;
+  margin-left: 10px;
+}
+/* line 39, /home/pavel/projects/mireadb/app/assets/stylesheets/header.css.scss */
+.header .auth .user-name {
+  float: left;
+  font: italic 14pt Segoe UI;
+  text-shadow: 1px 1px 3px black;
+}
+/* line 3, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-subject {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: Calibri, Segoe UI, sans-serif;
+}
+/* line 13, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-subject .text {
+  padding: 0.5em;
+}
+/* line 17, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-subject br {
+  line-height: 1.8em;
+}
+/* line 21, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-subject code {
+  font-family: Consolas, Courier New, monospace;
+  text-shadow: 1px 1px 3px #0047ff;
+  color: #EEE;
+}
+/* line 27, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-subject em {
+  display: block;
+  font-size: 0.8em;
+  padding-top: 1em;
+}
+
+/* line 36, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .title, .task-area .mssql-task-result .title {
+  font-size: 1em;
+  height: 1.1em;
+  margin: 0.5em;
+  background-color: #555;
+  color: #EEE;
+  text-shadow: none;
+  font-weight: normal;
+}
+/* line 46, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 30%;
+}
+/* line 53, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form {
+  position: absolute;
+  left: 0.5em;
+  right: 0.5em;
+  bottom: 0.5em;
+  top: 2.4em;
+  overflow: hidden;
+}
+/* line 61, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .solution-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 2em;
+}
+/* line 69, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form textarea {
+  font-size: 1em;
+  padding: 0.2em;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: none;
+  font-family: Consolas, Courier New, monospace;
+  overflow-y: scroll;
+}
+/* line 81, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0em;
+  height: 1.6em;
+  display: table;
+}
+/* line 89, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area input[type=submit] {
+  display: table-cell;
+  width: 120px;
+  padding: 0.1em 0.75em;
+  transition: 0.2s padding;
+}
+/* line 96, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area input[type=submit].progress {
+  background-image: url(/assets/ajax-loader.gif);
+  background-repeat: no-repeat;
+  background-position: center left;
+  padding: 0.1em 0.5em 0.1em 1em;
+}
+/* line 103, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area .response {
+  display: table-cell;
+  width: 100%;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 113, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area .alert {
+  padding: 0em 0.3em;
+  margin: 0;
+  font-size: 0.9em;
+  color: #F27F7F;
+  display: none;
+}
+/* line 121, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area .notice {
+  padding: 0em 0.3em;
+  margin: 0;
+  font-size: 0.9em;
+  color: #83ae83;
+  display: none;
+}
+/* line 128, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area .visible {
+  display: inline-block;
+}
+/* line 132, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.task-area .mssql-task-solution .solution-form .submit-area .next-link {
+  display: table-cell;
+  white-space: nowrap;
+  text-decoration: none;
+  font-style: normal;
+  border: 2px outset buttonface;
+  background-color: buttonface;
+  color: buttontext;
+  padding: 0.1em 0.75em;
+  font-family: Segoe UI;
+  font-size: 14pt;
+  -webkit-appearance: push-button;
+}
+
+/* line 150, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 50%;
+}
+/* line 157, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result .result-table {
+  margin: 0.5em;
+  overflow: auto;
+  position: absolute;
+  left: 0;
+  right: 8em;
+  top: 2em;
+  bottom: 0;
+  display: none;
+}
+/* line 168, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result .result-legend {
+  margin: 0.5em;
+  overflow: auto;
+  position: absolute;
+  width: 8em;
+  right: 0;
+  top: 2em;
+  background-color: #CCC;
+  padding: 5px;
+  display: none;
+}
+/* line 179, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result .result-legend table {
+  font-size: 0.8em;
+  white-space: nowrap;
+  width: 100%;
+}
+/* line 184, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result .result-legend table th.header {
+  border: none;
+}
+/* line 188, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result .result-legend table th {
+  font-size: 0.7em;
+  width: 100%;
+}
+/* line 193, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result .result-legend table td {
+  text-align: center;
+  width: 100%;
+}
+/* line 200, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table {
+  font-family: Consolas, Courier New, monospace;
+  border-collapse: collapse;
+}
+/* line 204, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table thead tr {
+  background-color: #CCC;
+  color: #333;
+}
+/* line 209, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table tr.extra {
+  background-color: #B01414;
+  color: #e3e3e3;
+}
+/* line 214, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table tr.missing {
+  background-color: #07712e;
+  color: #e3e3e3;
+}
+/* line 219, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table th.extra {
+  background-color: #FF7474;
+}
+/* line 223, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table th.missing {
+  background-color: #65C679;
+}
+/* line 227, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table th {
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 0.8em;
+  padding: 0.2em 0.5em;
+}
+/* line 234, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table td {
+  border: 1px solid #999;
+  text-align: right;
+  font-size: 0.7em;
+  padding: 0.2em 0.5em;
+}
+/* line 241, /home/pavel/projects/mireadb/app/assets/stylesheets/mssqltask_view.css.scss */
+.mssql-task-result table .null-value {
+  font-style: italic;
+  color: #888;
+}
+/* line 3, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.task-lists {
+  position: absolute;
+  top: 2em;
+  bottom: 0.5em;
+  left: 0.5em;
+  width: 16em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #EEE;
+  padding: 0em 0.2em;
+  margin: 0.25em 0em 0em 0em;
+}
+
+/* line 17, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.task-list {
+  margin: 0.25em 0em;
+}
+/* line 20, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.task-list a {
+  border: 1px solid #cccccc;
+  display: block;
+  padding: 0.1em 0.5em;
+  font-style: normal;
+  text-decoration: none;
+  color: #333;
+}
+/* line 29, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.task-list a:hover {
+  background-color: #555555;
+  color: #e0e0e0;
+}
+
+/* line 36, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.task-list.selected .task-list-name {
+  border: 1px solid #cccccc;
+  padding: 0.1em 0.5em;
+  font-style: normal;
+  text-decoration: none;
+  background-color: #555555;
+  color: #cccccc;
+}
+
+/* line 46, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks {
+  margin: 0.5em 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 51, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task {
+  display: table;
+  width: 100%;
+  border: none;
+}
+/* line 56, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task .selector, .tasks .task .done {
+  border: none;
+  display: table-cell;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: initial;
+}
+/* line 65, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task .selector {
+  width: 24px;
+}
+/* line 69, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task .done {
+  width: 16px;
+}
+/* line 73, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task .done.visible {
+  background-image: url(/assets/ok.png);
+}
+/* line 77, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task a {
+  background-color: transparent;
+  display: table;
+  padding: 0.2em 0em;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #999;
+  color: #666;
+}
+/* line 86, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task a:hover {
+  background-color: #333;
+  color: #EEE;
+}
+/* line 90, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task .task-name {
+  width: 100%;
+}
+/* line 96, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task.selected .selector {
+  background-image: url(/assets/arrow_right.png);
+}
+/* line 100, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task.selected a {
+  color: black;
+}
+/* line 103, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task.selected a:hover {
+  color: #EEE;
+}
+/* line 109, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task:first-child a {
+  border-top: none;
+}
+/* line 113, /home/pavel/projects/mireadb/app/assets/stylesheets/task_lists.css.scss */
+.tasks .task:first-child .done {
+  border-top: none;
+}
+/* line 3, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-area {
+  position: absolute;
+  top: 2em;
+  bottom: 0.5em;
+  left: 17em;
+  right: 0.5em;
+  border: 1px solid #cccccc;
+  margin: 0.25em 0em 0em 0.5em;
+}
+/* line 12, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-area .title {
+  font-size: 1.2em;
+  height: 1.26667em;
+  padding: 0.2em 0.5em;
+  background: #EEE;
+  color: #555;
+  text-shadow: 1px 1px 1px white;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 26, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content {
+  position: absolute;
+  top: 2em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/* line 33, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .task-popups {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+/* line 43, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border {
+  width: 260px;
+  height: 6em;
+  background: #EEE;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  margin-left: -130px;
+  margin-top: -3em;
+  border: 1px solid #999;
+  outline: 2px solid white;
+  color: #333;
+}
+/* line 56, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .text {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0.2em 0.5em 0.5em 0.5em;
+  text-shadow: 1px 1px 1px #999;
+}
+/* line 63, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .close-btn {
+  position: absolute;
+  cursor: pointer;
+  top: 0px;
+  right: 0px;
+  width: 18px;
+  height: 18px;
+  background-image: url(/assets/close.png);
+  background-size: contain;
+  opacity: 0.6;
+  transition: 0.2s opacity;
+}
+/* line 75, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .close-btn:hover {
+  opacity: 1;
+}
+/* line 79, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .tick {
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  background-image: url(/assets/ok.png);
+  background-size: contain;
+}
+/* line 87, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .next-link-area {
+  position: absolute;
+  bottom: 0;
+}
+/* line 91, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .next-link-area .next-link {
+  margin: 0.3em auto;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #333;
+  font-style: italic;
+  display: block;
+  white-space: nowrap;
+  padding: 0.1em 0.5em;
+  border: 1px dotted black;
+  border-radius: 5px;
+  transition: 0.2s background-color;
+}
+/* line 105, /home/pavel/projects/mireadb/app/assets/stylesheets/tasks.css.scss */
+.task-content .popup-border .next-link-area .next-link:hover {
+  background-color: #CCC;
+  color: #333;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */

@@ -7,6 +7,6 @@ class TaskList < ActiveRecord::Base
 	has_many :tasks
 
 	def student_tasks(student)
-		StudentTask.includes(:task).where(task_list: self, student: student).references(:task)
+		StudentTask.includes(:task).where(task_list: self, student: student)
 	end
 end

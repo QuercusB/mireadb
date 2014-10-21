@@ -11,7 +11,18 @@ class TasksController < ApplicationController
 
 	def show
 		@attempt = StudentTaskAttempt.where(student: current_student, task: @task, done: true).first ||
-			StudentTaskAttempt.where(student: current_student, task: @task).last
+			StudentTaskAttempt.where(student: current_student, task: @task).last 
+		if @attempt.nil? && @task.follows
+			prev_task = @task.task_list.tasks.where(task_variant: @task.task_variant, index: @task.index - 1).first
+			if prev_task.nil?
+				@prev_task_attempt = nil
+			else
+				@prev_task_attempt = StudentTaskAttempt.where(student: current_student, task: prev_task, done: true).first
+			end
+		else
+			@prev_task_attempt = nil
+		end
+		@next_task = @task.task_list.tasks.where(task_variant: @task.task_variant, index: @task.index + 1).first
 	end
 
 	def attempt

@@ -18,7 +18,7 @@ CREATE VIEW student_tasks AS
 				task_list.id as task_list_id,
 				student_assignment.student_id as student_id,
 				task.id as task_id,
-				MAX(COALESCE(attempt.done, 0)) as done
+				MAX(attempt.done) as done
 			FROM
 				task_lists task_list
 				JOIN courses course
@@ -69,4 +69,8 @@ INSERT INTO schema_migrations (version) VALUES ('20141007061403');
 INSERT INTO schema_migrations (version) VALUES ('20141012103333');
 
 INSERT INTO schema_migrations (version) VALUES ('20141016123920');
+
+INSERT INTO schema_migrations (version) VALUES ('20141020070230');
+
+INSERT INTO schema_migrations (version) VALUES ('20141021070732');
 
