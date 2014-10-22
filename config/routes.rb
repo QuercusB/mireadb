@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :students
   resources :courses, only: [:index, :show] do
     resources :task_lists, only: [:index, :show] do
       resources :tasks, only: [:index, :show] do

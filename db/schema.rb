@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021070732) do
+ActiveRecord::Schema.define(version: 20141022111424) do
 
   create_table "courses", force: true do |t|
     t.string   "code"
@@ -50,7 +50,16 @@ ActiveRecord::Schema.define(version: 20141021070732) do
     t.string   "login"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encrypted_password",  default: "", null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "students", ["login"], name: "index_students_on_login", unique: true
 
   create_table "task_lists", force: true do |t|
     t.integer  "index",      default: 0

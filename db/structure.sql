@@ -2,7 +2,7 @@ CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
 CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
 CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "name" varchar(255), "created_at" datetime, "updated_at" datetime);
 CREATE TABLE "task_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "index" integer DEFAULT 0, "name" varchar(255), "course_id" integer, "created_at" datetime, "updated_at" datetime);
-CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "login" varchar(255), "created_at" datetime, "updated_at" datetime);
+CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "login" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255));
 CREATE TABLE "student_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "task_variant_id" integer, "created_at" datetime, "updated_at" datetime);
 CREATE INDEX "index_student_assignments_on_student_id" ON "student_assignments" ("student_id");
 CREATE INDEX "index_student_assignments_on_task_variant_id" ON "student_assignments" ("task_variant_id");
@@ -32,6 +32,7 @@ CREATE VIEW student_tasks AS
 				LEFT JOIN student_task_attempts attempt
 				    ON attempt.task_id = task.id and attempt.student_id = student_assignment.student_id
 			GROUP BY task_list.id, student_assignment.student_id, task.id;
+CREATE UNIQUE INDEX "index_students_on_login" ON "students" ("login");
 INSERT INTO schema_migrations (version) VALUES ('20140924021219');
 
 INSERT INTO schema_migrations (version) VALUES ('20140924022759');
@@ -73,4 +74,8 @@ INSERT INTO schema_migrations (version) VALUES ('20141016123920');
 INSERT INTO schema_migrations (version) VALUES ('20141020070230');
 
 INSERT INTO schema_migrations (version) VALUES ('20141021070732');
+
+INSERT INTO schema_migrations (version) VALUES ('20141022084801');
+
+INSERT INTO schema_migrations (version) VALUES ('20141022111424');
 

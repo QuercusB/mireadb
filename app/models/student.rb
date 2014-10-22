@@ -1,4 +1,6 @@
 class Student < ActiveRecord::Base
+	devise :database_authenticatable, :rememberable, :trackable
+
 	validates_presence_of :first_name
 	validates_presence_of :last_name
 	validates_presence_of :login

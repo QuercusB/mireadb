@@ -89,7 +89,7 @@ class AddSecondVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 8,
 		title: 'Сортировка данных',
-		subject: 'В приложении мы решили поддерживать сортировку по различным полям (для начала по возрасту).<br>Напишите запрос получающий все строки таблицы <code>People</code> отсортированно в порядке возрастания <code>Age</code>.',
+		subject: 'В приложении мы решили поддерживать сортировку по различным полям (для начала по возрасту).<br>Напишите запрос получающий все строки таблицы <code>People</code> отсортированые в порядке возрастания <code>Age</code>.',
 		data: { answer: 'SELECT * FROM People ORDER BY Age', order_key: 'Age', ordered: 1 }
 	})
 
