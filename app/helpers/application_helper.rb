@@ -4,8 +4,4 @@ module ApplicationHelper
 		output = render(file: "layouts/#{layout}")
 		self.output_buffer = ActionView::OutputBuffer.new(output)
 	end
-
-	def current_student
-		@current_student
-	end
 end

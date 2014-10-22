@@ -7,6 +7,7 @@ class TasksController < ApplicationController
 	respond_to :html, :json
 
 	def index
+		@variant = current_student.task_variants.where(course: @course).first
 	end
 
 	def show

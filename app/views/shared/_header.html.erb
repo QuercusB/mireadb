@@ -8,7 +8,7 @@
 		<div class="user-name">
 			<%= current_student.display_name %>
 		</div>
-		<a href="#" class="student-info">Управление</a>
-		<a href="#" class="student-logout">Выйти</a>
+		<!-- <a href="#" class="student-info">Управление</a> -->
+		<%= link_to 'Выйти', destroy_student_session_path, method: :delete, class: 'student-logout' %>
 	</div>
 </div>

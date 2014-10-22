@@ -1,4 +1,5 @@
 <ul class="courses-list">
+	<div class="title">Ваши курсы:</div>
 	<% @courses.each do |course| %>
 		<li class="course" data-id="<%= course.id %>">
 			<a href="<%= course_path(course) %>">

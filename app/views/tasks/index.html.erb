@@ -1,1 +1,13 @@
 <%= render 'task_list_panel', course: @course, task_list: @task_list, task: nil %>
+
+<% if @variant.nil? %>
+	<div class="variant-description">
+		<div class="title">Вариант пока не готов</div>
+		<div class="description">К сожалению, пока Ваш вариант еще не готов<br>Зайдите, пожалуйста, попозже (все варианты будут подготовлены к 27 октября)</div>
+	</div>
+<% else %>
+	<div class="variant-description">
+		<div class="title">Вариант №<%= @variant.index %></div>
+		<div class="description"><%= raw(@variant.description) %></div>
+	</div>
+<% end %>

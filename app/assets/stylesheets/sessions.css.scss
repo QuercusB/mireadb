@@ -1,0 +1,36 @@
+@import 'style';
+
+.login-container
+{
+	.message {
+		text-align: center;
+		padding: 6em 1em 2em 1em;
+		max-width: 20em;
+		margin: auto;
+		font-size: $large-font-size;
+	}
+
+	.login-form {
+		max-width: 14em;
+		margin: auto;
+	}
+
+	.login-field {
+		
+		input[type=login] {
+			width: 100%;
+		}
+		input[type=password] {
+			width: 100%;
+		}
+	}
+
+	.login-action {
+		margin: 1em 0em;
+
+		input[type=submit] {
+			float: right;
+		}
+	}
+
+}

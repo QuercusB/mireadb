@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  text:
+    greeting: "Добро пожаловать на\nCourse@Quercus"
+  auth:
+    login: 'Логин'
+    password: 'Пароль'
+    remember_me: 'Запомнить меня'
+    sign_in: 'Войти'

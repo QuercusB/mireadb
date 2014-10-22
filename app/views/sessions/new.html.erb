@@ -1,0 +1,33 @@
+<div class="login-container">
+	<div class="message">
+		<%= simple_format t('text.greeting') %>
+	</div>
+	<div class="login-form">
+	  <%= form_for(:student, :url => create_student_session_path) do |f| %>
+		<div class="notice">
+			<%= flash[:notice] %>
+		</div> 	
+	    <div class="alert">
+		    <%= flash[:alert] %>
+	    </div>
+	    <div class="login-field">
+	      <%= f.label :login, t('auth.login') %>
+	      <%= f.text_field :login, :autofocus => true, :type => :login %>
+	    </div>
+
+	    <div class="login-field">
+	      <%= f.label :password, t('auth.password') %>
+	      <%= f.password_field :password %>
+	    </div>
+
+	    <div class="login-field">
+	      <%= f.check_box :remember_me %> 
+	      <%= f.label :remember_me, t('auth.remember_me') %>
+	    </div>
+
+	    <div class="login-action">
+	      <%= f.submit t('auth.sign_in') %>
+	    </div>
+	  <% end %>
+	</div>
+</div>

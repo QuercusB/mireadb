@@ -4,6 +4,9 @@ class TaskListsController < ApplicationController
 	before_action :set_task_list, except: :index
 
 	def index
+		if @course.task_lists.length == 1
+			redirect_to course_task_list_path(@course, @course.task_lists.first)
+		end
 	end
 
 	def show

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :students
+  root to: 'courses#index'
+  devise_for :students, path: 'login', controllers: { sessions: "sessions" }, skip: [ :sessions ]
+  
+  devise_scope :student do
+    get 'login', to: 'sessions#new', as: :new_student_session
+    post 'login', to: 'sessions#create', as: :create_student_session
+    delete 'sign_out', to: 'sessions#destroy', as: :destroy_student_session
+  end
+
   resources :courses, only: [:index, :show] do
     resources :task_lists, only: [:index, :show] do
       resources :tasks, only: [:index, :show] do
@@ -10,7 +18,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  root 'courses#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

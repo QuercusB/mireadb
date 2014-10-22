@@ -76,8 +76,8 @@ class AddThirdVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 5,
 		title: 'Только нужные записи',
-		subject: 'Кто-то нам рекомендовал потреблять поменьше калорий. Что из меню МсDonalds содержит менее 200 килокалорий?<br>Напишите запрос получающий только те строки таблицы <code>Menu</code>, где <code>CCal</code> менее 200',
-		data: { answer: 'SELECT * FROM Menu WHERE CCal < 200', order_key: 'ID'}
+		subject: 'Кто-то нам рекомендовал потреблять поменьше калорий. Что из меню МсDonalds содержит менее 100 килокалорий?<br>Напишите запрос получающий только те строки таблицы <code>Menu</code>, где <code>CCal</code> менее 100',
+		data: { answer: 'SELECT * FROM Menu WHERE CCal < 100', order_key: 'ID'}
 	})
 
 	MSSQLTask.create!({
@@ -85,8 +85,8 @@ class AddThirdVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 6,
 		title: 'Усложняем критерий отбора',
-		subject: 'На первый взгляд, все в McDonalds что содержит менее 200 килокалорий не содержит и соли. Есть ли что-то менее 200 килокалорий, но соленое?<br>Напишите запрос получающий только те строки таблицы <code>Menu</code>, где <code>CCal</code> менее 200, а <code>Sodium</code> больше 0',
-		data: { answer: 'SELECT * FROM Menu WHERE CCal < 200 and Sodium > 0', follows: true,  order_key: 'ID'}
+		subject: 'На первый взгляд, все в McDonalds что содержит менее 100 килокалорий не содержит и соли. Есть ли что-то менее 200 килокалорий, но соленое?<br>Напишите запрос получающий только те строки таблицы <code>Menu</code>, где <code>CCal</code> менее 100, а <code>Sodium</code> больше 0',
+		data: { answer: 'SELECT * FROM Menu WHERE CCal < 100 and Sodium > 0', follows: true,  order_key: 'ID'}
 	})
 
 	MSSQLTask.create!({
@@ -94,8 +94,8 @@ class AddThirdVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 7,
 		title: 'Работаем с NULL',
-		subject: 'На этот раз нас интересует список блюд, содержащих не менее 200 килокалорий, но не содержащих соли.<br>Напишите запрос получающий только те строки таблицы <code>Menu</code>, где <code>CCal</code> больше или равно 200 и поле <code>Sodium</code> равно 0 или не задано (равно <code>NULL</code>).',
-		data: { answer: 'SELECT * FROM Menu WHERE CCal >= 200 and ISNULL(Sodium, 0) = 0', follows: true, order_key: 'ID'}
+		subject: 'На этот раз нас интересует список блюд, содержащих не менее 100 килокалорий, но не содержащих соли.<br>Напишите запрос получающий только те строки таблицы <code>Menu</code>, где <code>CCal</code> больше или равно 100 и поле <code>Sodium</code> равно 0 или не задано (равно <code>NULL</code>).',
+		data: { answer: 'SELECT * FROM Menu WHERE CCal >= 100 and ISNULL(Sodium, 0) = 0', follows: true, order_key: 'ID'}
 	})
 
   	MSSQLTask.create!({
@@ -103,7 +103,7 @@ class AddThirdVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 8,
 		title: 'Сортировка данных',
-		subject: 'В приложении мы решили поддерживать сортировку по различным полям (для начала по килокалориям).<br>Напишите запрос получающий все строки таблицы <code>Main</code> отсортированые в порядке возрастания <code>CCal</code>.',
+		subject: 'В приложении мы решили поддерживать сортировку по различным полям (для начала по килокалориям).<br>Напишите запрос получающий все строки таблицы <code>Menu</code> отсортированые в порядке возрастания <code>CCal</code>.',
 		data: { answer: 'SELECT * FROM Menu ORDER BY CCal', order_key: 'CCal', ordered: 1 }
 	})
 
