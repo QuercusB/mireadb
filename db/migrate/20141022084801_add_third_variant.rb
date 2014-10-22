@@ -49,7 +49,7 @@ class AddThirdVariant < ActiveRecord::Migration
   		task_variant: variant,
   		index: 2,
   		title: 'Переименовываем колонки',
-  		subject: 'Оказалось, что мы неправильно назвали колонки в базе данных, и для приложения нужны другие имена полей.<br>Из таблицы <code>Menu</code> получите данные по всем строкам с полями: <code>ID</code>, <code>Name</code> и <code>Calories</code>, где поле а <code>Calories</code> - переименованное поле <code>CCal</code>',
+  		subject: 'Оказалось, что мы неправильно назвали колонки в базе данных, и для приложения нужны другие имена полей.<br>Из таблицы <code>Menu</code> получите данные по всем строкам с полями: <code>ID</code>, <code>Name</code> и <code>Calories</code>, где поле <code>Calories</code> - это переименованное поле <code>CCal</code>',
   		data: { answer: 'SELECT ID, Name, CCal as Calories FROM Menu', follows: true, order_key: 'ID' }
   	})
 
@@ -121,7 +121,7 @@ class AddThirdVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 10,
 		title: 'Собираем статистику',
-		subject: 'Мы решили доказать что продукты в McDonalds полезны. Поэтому надо собрать статистику: общее количество продуктов, средние калорийность, кол-во протеинов и жиров.<br>Напишите запрос получающий по таблице <code>Menu</code> 1 строку с полями <code>Total</code> (общее количество продуктов), <code>AvgCCal</code> (среднее значение поля <code>CCal</code>), <code>AvgProtein</code> (среднее значение поля <code>Protein</code>), <code>AvgFat</code> (среднее значение поля <code>Fat</code>)',
+		subject: 'Мы решили доказать что продукты в McDonalds полезны. Поэтому надо собрать статистику: общее количество продуктов, средние калорийность, кол-во протеинов и жиров.<br>Напишите запрос получающий по таблице <code>Menu</code> 1 строку с полями <code>Total</code> (общее количество блюд), <code>AvgCCal</code> (среднее значение поля <code>CCal</code>), <code>AvgProtein</code> (среднее значение поля <code>Protein</code>), <code>AvgFat</code> (среднее значение поля <code>Fat</code>)',
 		data: { answer: 'SELECT COUNT(*) as Total, Avg(CCal) as AvgCCal, Avg(Protein) as AvgProtein, Avg(Fat) as AvgFat from Menu' }
 	})
 
@@ -130,8 +130,8 @@ class AddThirdVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 11,
 		title: 'Статистика с группировкой',
-		subject: 'Теперь нас интересует распределение калорийности и количества блюд относительно содержащейся в нем соли.<br>Напишите запрос который сгруппирует данные таблицы <code>Menu</code> и вернет несколько строк с полями: <code>Sodium</code> (количество соли), <code>N</code> (количество записей с таким значением соли), <code>AvgCCal</code> (среднее значение поля калорийность для заданного значения соли)<em>Значениям <code>NULL</code> и <code>0</code> должны соответствовать разные строки</em>',
-		data: { answer: 'SELECT Sodium, COUNT(*) as N, Avg(CCal) as AvgCCal FROM Menu GROUP BY Sodium', follows: true, order_key: 'Age'}
+		subject: 'Теперь нас интересует распределение калорийности и количества блюд относительно содержащейся в нем соли.<br>Напишите запрос который сгруппирует данные таблицы <code>Menu</code> и вернет несколько строк с полями: <code>Sodium</code> (количество соли), <code>N</code> (количество записей с таким значением соли), <code>AvgCCal</code> (среднее значение поля <code>CCal</code> для заданного значения соли)<em>Значениям <code>NULL</code> и <code>0</code> должны соответствовать разные строки</em>',
+		data: { answer: 'SELECT Sodium, COUNT(*) as N, Avg(CCal) as AvgCCal FROM Menu GROUP BY Sodium', order_key: 'Sodium'}
 	})
   end
 
