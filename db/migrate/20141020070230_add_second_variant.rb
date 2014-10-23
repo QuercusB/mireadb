@@ -8,7 +8,19 @@ class AddSecondVariant < ActiveRecord::Migration
   		host: 'mireadb.cg3urejuymam.eu-west-1.rds.amazonaws.com',
   		database: 'abiturients',
   		username: 'quercus',
-	  	password: 'mirea548'})
+	  	password: 'mirea548',
+	 	description: <<-DESC
+	  		Вам предостоит работать с базой, содержащей данные о студентах.<br>
+	  		В базе есть единственная таблица <code>People</code> с полями:
+	  		<ul>
+	  			<li><code>ID</code> - идентификатор записи (int, суррогатный первичный ключ)</li>
+	  			<li><code>FirstName</code> - имя студента (nvarchar(255), обязательное)</li>
+	  			<li><code>LastName</code> - фамилия студента (nvarchar(255), обязательное)</li>
+	  			<li><code>Age</code> - возраст студента (int, обязательное)</li>
+	  			<li><code>IsBudget</code> - находится ли студент на бюджетном отделении (bit, необязательное)</li>
+	  		</ul>
+	  	DESC
+	})
 
   	task_list = Course.first.task_lists.first
 
@@ -80,7 +92,7 @@ class AddSecondVariant < ActiveRecord::Migration
 		task_variant: variant,
 		index: 7,
 		title: 'Работаем с NULL',
-		subject: 'На этот раз нас интересует список студентов младше 18 лет, но не попавших на бюджет.<br>Напишите запрос получающий только те строки таблицы <code>People</code>, где <code>Age</code> больше или равно 18 и поле <code>IsBudget</code> не равно 1.<em>Обратите внимание в некоторых строках поле <code>IsBudget</code> незаполнено (равно <code>NULL</code>).',
+		subject: 'На этот раз нас интересует список студентов младше 18 лет, но не попавших на бюджет.<br>Напишите запрос получающий только те строки таблицы <code>People</code>, где <code>Age</code> менее 18 и поле <code>IsBudget</code> не равно 1.<em>Обратите внимание в некоторых строках поле <code>IsBudget</code> незаполнено (равно <code>NULL</code>).',
 		data: { answer: 'SELECT * FROM People WHERE Age < 18 and ISNULL(IsBudget, 0) = 0', follows: true, order_key: 'ID'}
 	})
 
