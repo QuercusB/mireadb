@@ -148,7 +148,7 @@ function MSSQLTask(task) {
 	}
 
 	function fadeIn(div, afterFadeIn) {
-		div.css('opacity', 0).css('display', 'inline-block').animate({opacity: 1}, 200, afterFadeIn);
+		div.stop().css('opacity', 0).css('display', 'inline-block').animate({opacity: 1}, 200, afterFadeIn);
 	}
 
 	this.loadResultData = function (resultData) {
